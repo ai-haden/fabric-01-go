@@ -1,2 +1,3 @@
 # fabric-01-go
-First attempt at value-chain RL
+
+First _go_ at value-chain RL.
