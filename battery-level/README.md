@@ -12,7 +12,7 @@ Run the command. Grok has a version that doesn't work in Fabric 2.5.11:
 Since `peer` is not in the bash profile create the following:
 
 ```
-
+export PATH=/home/cartheur/go/src/github.com/cartheur/fabric/bin:$PATH
 ```
 
 2. Install the chaincode
