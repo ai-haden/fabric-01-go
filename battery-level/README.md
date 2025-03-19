@@ -25,6 +25,10 @@ Despite this:
 
 `Error: failed to retrieve endorser client for install: endorser client failed to connect to localhost:7051: failed to create new connection: context deadline exceeded`
 
+Check with docker logs on the container:
+
+`docker logs peer0.org1.example.com`
+
 _TLS is the issue_
 
 ```
@@ -36,9 +40,25 @@ With TLS being solved, the next error is:
 
 `Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': could not build chaincode: docker build failed: docker image build failed: docker build failed: Error returned from build: 1 "go: downloading go1.24.1 (linux/amd64)
 `
-Try without TLS
+_Try without TLS_
 
 ```
 export CORE_PEER_TLS_ENABLED=false
 peer lifecycle chaincode install batterycc.tar.gz
 ```
+
+A different error but still not effective. Issue is other networks in the instance, for myself the experiments with Prometheus and Kind, so
+
+```
+./network.sh down
+docker rm -f $(docker ps -aq)
+docker network prune
+./network.sh up
+```
+
+However, we now get a docker build error:
+
+`battery_level_chaincode.go:6:5: missing go.sum entry for module providing package github.com/hyperledger/fabric-chaincode-go/shim (imported by battery_level_chaincode); to add:
+        go get battery_level_chaincode`
+
+        
