@@ -36,3 +36,9 @@ With TLS being solved, the next error is:
 
 `Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': could not build chaincode: docker build failed: docker image build failed: docker build failed: Error returned from build: 1 "go: downloading go1.24.1 (linux/amd64)
 `
+Try without TLS
+
+```
+export CORE_PEER_TLS_ENABLED=false
+peer lifecycle chaincode install batterycc.tar.gz
+```
