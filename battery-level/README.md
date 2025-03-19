@@ -188,3 +188,9 @@ Verify:
 Errors with:
 
 `Error: endorsement failure during invoke. response: status:500 message:"make sure the chaincode batterylevelcc has been successfully defined on channel haden and try again: chaincode batterylevelcc not found" `
+
+-----
+
+Getting lost now. Check with:
+
+`peer lifecycle chaincode querycommitted --channelID haden --name batterylevelcc`
