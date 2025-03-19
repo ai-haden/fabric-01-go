@@ -214,6 +214,8 @@ Gives the error:
 
 `Error: proposal failed with status: 500 - failed to invoke backing implementation of 'ApproveChaincodeDefinitionForMyOrg': attempted to redefine uncommitted sequence (1) for namespace batterylevelcc with unchanged content`
 
+Because it has already been approved by both Orgs.
+
 Org2
 ```
 export CORE_PEER_LOCALMSPID=Org2MSP
