@@ -165,6 +165,17 @@ Gets:
 2025-03-19 15:08:02.023 CET 0001 INFO [chaincodeCmd] ClientWait -> txid [44a03e42b8bc59176bc2d3418f4219f0009af87b71339b78e8112317bc6d4223] committed with status (ENDORSEMENT_POLICY_FAILURE) at localhost:7051
 Error: transaction invalidated with status (ENDORSEMENT_POLICY_FAILURE)
 ```
+Because need approval from _both_ orgs, since Org1 is only approved from above. Now need to switch orgs in `export`:
+
+```
+export CORE_PEER_LOCALMSPID=Org2MSP
+export CORE_PEER_MSPCONFIGPATH=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+export CORE_PEER_ADDRESS=localhost:9051
+export CORE_PEER_TLS_ROOTCERT_FILE=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+```
+And the second approval:
+
+`peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID mychannel --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078 --sequence 1 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
 
 Verify:
 
