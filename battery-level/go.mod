@@ -1,11 +1,16 @@
 module battery_level_chaincode
 
-go 1.24.1
+go 1.22.0
+
+toolchain go1.24.1
+
+require (
+	github.com/hyperledger/fabric-chaincode-go v0.0.0-20240704073638-9fb89180dc17
+	github.com/hyperledger/fabric-protos-go v0.3.7
+)
 
 require (
 	github.com/golang/protobuf v1.5.4 // indirect
-	github.com/hyperledger/fabric-chaincode-go v0.0.0-20240704073638-9fb89180dc17 // indirect
-	github.com/hyperledger/fabric-protos-go v0.3.7 // indirect
 	golang.org/x/net v0.34.0 // indirect
 	golang.org/x/sys v0.29.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
