@@ -108,3 +108,20 @@ Still getting the error:
 `Error building image: docker build failed: Error returned from build: 1 "go: downloading go1.24.1 (linux/amd64)
 battery_level_chaincode.go:6:5: missing go.sum entry for module providing package github.com/hyperledger/fabric-chaincode-go/shim (imported by battery_level_chaincode); to add:
         go get battery_level_chaincode`
+
+-----
+
+Using the proper fucking code, running:
+
+```
+go mod vendor
+peer lifecycle chaincode package batterylevelcc.tar.gz -p . --label batterylevelcc_1.0
+peer lifecycle chaincode install batterylevelcc.tar.gz
+```
+
+Gets:
+
+```
+2025-03-19 14:51:32.512 CET 0001 INFO [cli.lifecycle.chaincode] submitInstallProposal -> Installed remotely: response:<status:200 payload:"\nSbatterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078\022\022batterylevelcc_1.0" > 
+2025-03-19 14:51:32.513 CET 0002 INFO [cli.lifecycle.chaincode] submitInstallProposal -> Chaincode code package identifier: batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078
+```
