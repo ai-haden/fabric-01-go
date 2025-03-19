@@ -194,3 +194,7 @@ Errors with:
 Getting lost now. Check with:
 
 `peer lifecycle chaincode querycommitted --channelID haden --name batterylevelcc`
+
+Gives the error:
+
+`Error: query failed with status: 404 - namespace batterylevelcc is not defined`
