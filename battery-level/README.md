@@ -82,6 +82,10 @@ go get -u github.com/hyperledger/fabric-protos-go/peer
 go mod tidy
 go mod vendor
 ```
+But:
+
+`go: github.com/hyperledger/fabric-chaincode-go@v0.0.0-20220920211402-79e4c7985b55: invalid version: unknown revision 79e4c7985b55`
+
 
 And:
 
