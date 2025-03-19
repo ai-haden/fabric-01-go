@@ -169,14 +169,22 @@ Because need approval from _both_ orgs, since Org1 is only approved from above. 
 
 ```
 export CORE_PEER_LOCALMSPID=Org2MSP
-export CORE_PEER_MSPCONFIGPATH=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+export CORE_PEER_MSPCONFIGPATH=/home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
 export CORE_PEER_ADDRESS=localhost:9051
-export CORE_PEER_TLS_ROOTCERT_FILE=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+export CORE_PEER_TLS_ROOTCERT_FILE=/home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
 ```
 And the second approval:
 
-`peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID mychannel --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078 --sequence 1 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
+`peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
+
+Yes! Yields:
+
+`2025-03-19 15:15:04.452 CET 0001 INFO [chaincodeCmd] ClientWait -> txid [765d5bad299d45b03df8f2bcba8a69cf32edeecdab7ca31e091ac0fa8ae1e1fc] committed with status (VALID) at localhost:9051`
 
 Verify:
 
 `peer chaincode invoke -o localhost:7050 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-19T10:03:00Z"]}'`
+
+Errors with:
+
+`Error: endorsement failure during invoke. response: status:500 message:"make sure the chaincode batterylevelcc has been successfully defined on channel haden and try again: chaincode batterylevelcc not found" `
