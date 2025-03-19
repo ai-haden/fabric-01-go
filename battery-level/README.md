@@ -101,3 +101,10 @@ And:
 
 `peer lifecycle chaincode package batterycc.tar.gz -p . --label batterycc_1.0`
 
+-----
+
+Still getting the error:
+
+`Error building image: docker build failed: Error returned from build: 1 "go: downloading go1.24.1 (linux/amd64)
+battery_level_chaincode.go:6:5: missing go.sum entry for module providing package github.com/hyperledger/fabric-chaincode-go/shim (imported by battery_level_chaincode); to add:
+        go get battery_level_chaincode`
