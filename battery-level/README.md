@@ -136,3 +136,15 @@ Received:
 Installed chaincodes on peer:
 Package ID: batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078, Label: batterylevelcc_1.0
 ```
+
+Approve:
+
+`peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID mychannel --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078 --sequence 1 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
+
+Commit:
+
+`peer lifecycle chaincode commit -o localhost:7050 --channelID mychannel --name batterylevelcc --version 1.0 --sequence 1 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
+
+Verify:
+
+`peer chaincode invoke -o localhost:7050 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-19T10:03:00Z"]}'`
