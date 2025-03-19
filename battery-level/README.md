@@ -13,6 +13,7 @@ Since `peer` is not in the bash profile create the following:
 
 ```
 export PATH=/home/cartheur/go/src/github.com/cartheur/fabric-samples/bin:$PATH
+export FABRIC_CFG_PATH=/home/cartheur/go/src/github.com/cartheur/fabric-samples/config/
 ```
 
 2. Install the chaincode
