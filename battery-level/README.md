@@ -61,4 +61,29 @@ However, we now get a docker build error:
 `battery_level_chaincode.go:6:5: missing go.sum entry for module providing package github.com/hyperledger/fabric-chaincode-go/shim (imported by battery_level_chaincode); to add:
         go get battery_level_chaincode`
 
-        
+Most likely a Go compatibility issue, since (currently) Fabric uses 1.18, the fix is to modify go.mod to:
+
+```
+module battery_level_chaincode
+
+go 1.18
+
+require (
+    github.com/hyperledger/fabric-chaincode-go v0.0.0-20220920211402-79e4c7985b55
+    github.com/hyperledger/fabric-protos-go v0.3.0
+)
+```
+
+Then:
+
+```
+go get -u github.com/hyperledger/fabric-chaincode-go/shim
+go get -u github.com/hyperledger/fabric-protos-go/peer
+go mod tidy
+go mod vendor
+```
+
+And:
+
+`peer lifecycle chaincode package batterycc.tar.gz -p . --label batterycc_1.0`
+
