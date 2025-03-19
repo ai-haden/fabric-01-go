@@ -198,3 +198,24 @@ Getting lost now. Check with:
 Gives the error:
 
 `Error: query failed with status: 404 - namespace batterylevelcc is not defined`
+
+_Reapprove_
+
+Org1
+```
+export CORE_PEER_LOCALMSPID=Org1MSP
+export CORE_PEER_MSPCONFIGPATH=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+export CORE_PEER_ADDRESS=localhost:7051
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_ROOTCERT_FILE=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078 --sequence 1 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+```
+Org2
+```
+export CORE_PEER_LOCALMSPID=Org2MSP
+export CORE_PEER_MSPCONFIGPATH=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+export CORE_PEER_ADDRESS=localhost:9051
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_ROOTCERT_FILE=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078 --sequence 1 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+```
