@@ -130,3 +130,9 @@ Check the results with:
 
 `peer lifecycle chaincode queryinstalled`
 
+Received:
+
+```
+Installed chaincodes on peer:
+Package ID: batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078, Label: batterylevelcc_1.0
+```
