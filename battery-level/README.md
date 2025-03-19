@@ -248,22 +248,44 @@ peer lifecycle chaincode queryapproved --channelID haden --name batterylevelcc
 
 Both approvals are successful!
 
-``
+```
+Approved chaincode definition for chaincode 'batterylevelcc' on channel 'haden':
+sequence: 1, version: 1.0, init-required: false, package-id: batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078, endorsement plugin: escc, validation plugin: vscc
+```
 
 Now try to commit:
 
 ```
 export CORE_PEER_LOCALMSPID=Org1MSP
-export CORE_PEER_MSPCONFIGPATH=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+export CORE_PEER_MSPCONFIGPATH=/home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 export CORE_PEER_ADDRESS=localhost:7051
 export CORE_PEER_TLS_ENABLED=true
-export CORE_PEER_TLS_ROOTCERT_FILE=/home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-peer lifecycle chaincode commit -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --sequence 1 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --peerAddresses localhost:7051 --peerAddresses localhost:9051 --tlsRootCertFiles /home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --tlsRootCertFiles /home/user/fabric/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+export CORE_PEER_TLS_ROOTCERT_FILE=/home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+peer lifecycle chaincode commit -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --peerAddresses localhost:7051 --peerAddresses localhost:9051 --tlsRootCertFiles /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --tlsRootCertFiles /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
 ```
+
+Yes! Received:
+
+```
+2025-03-19 15:35:39.150 CET 0001 INFO [chaincodeCmd] ClientWait -> txid [a6afca9885bedd49e4098d4f6722e6400f4f82540d6c13d4d427ae90bef79c0d] committed with status (VALID) at localhost:9051
+2025-03-19 15:35:39.313 CET 0002 INFO [chaincodeCmd] ClientWait -> txid [a6afca9885bedd49e4098d4f6722e6400f4f82540d6c13d4d427ae90bef79c0d] committed with status (VALID) at localhost:7051
+```
+
 And validate:
 
 `peer lifecycle chaincode querycommitted --channelID haden --name batterylevelcc`
 
+Yes! Received:
+
+```
+Committed chaincode definition for chaincode 'batterylevelcc' on channel 'haden':
+Version: 1.0, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [Org1MSP: true, Org2MSP: true]
+```
+
 Invoke again:
 
-`peer chaincode invoke -o localhost:7050 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-19T10:03:00Z"]}'`
+`peer chaincode invoke -o localhost:7050 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-19T10:03:00Z"]}'`
+
+Yes! Received:
+
+`2025-03-19 15:36:57.559 CET 0001 INFO [chaincodeCmd] chaincodeInvokeOrQuery -> Chaincode invoke successful. result: status:200 payload:"Battery level reported successfully" `
