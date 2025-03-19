@@ -125,3 +125,8 @@ Gets:
 2025-03-19 14:51:32.512 CET 0001 INFO [cli.lifecycle.chaincode] submitInstallProposal -> Installed remotely: response:<status:200 payload:"\nSbatterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078\022\022batterylevelcc_1.0" > 
 2025-03-19 14:51:32.513 CET 0002 INFO [cli.lifecycle.chaincode] submitInstallProposal -> Chaincode code package identifier: batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078
 ```
+
+Check the results with:
+
+`peer lifecycle chaincode queryinstalled`
+
