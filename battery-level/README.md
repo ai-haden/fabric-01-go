@@ -90,6 +90,12 @@ But:
 
 `go.mod:6:5: usage: require module/path v1.2.3`
 
+Replace with:
+
+```
+github.com/hyperledger/fabric-chaincode-go v0.0.0-20220920211402-6ab0e950e7dd
+github.com/hyperledger/fabric-protos-go v0.3.0
+```
 
 And:
 
