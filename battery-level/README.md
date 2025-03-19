@@ -9,6 +9,12 @@ Run the command. Grok has a version that doesn't work in Fabric 2.5.11:
 
 `peer lifecycle chaincode package batterylevelcc.tar.gz -p . --label batterylevelcc_1.0`
 
+Since `peer` is not in the bash profile create the following:
+
+```
+
+```
+
 2. Install the chaincode
 
 `peer lifecycle chaincode install batterylevelcc.tar.gz`
