@@ -151,9 +151,20 @@ If there are no channels, will need to create one since doing a `docker-compose`
 
 Go back and see if you can `Approve`.
 
+Yes! Yields:
+
+`2025-03-19 15:07:17.627 CET 0001 INFO [chaincodeCmd] ClientWait -> txid [738ec33189b475d25836dd4a4bd37ef55f9e4f1a649a955585b8fc1614e482d0] committed with status (VALID) at localhost:7051`
+
 Commit:
 
 `peer lifecycle chaincode commit -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
+
+Gets:
+
+```
+2025-03-19 15:08:02.023 CET 0001 INFO [chaincodeCmd] ClientWait -> txid [44a03e42b8bc59176bc2d3418f4219f0009af87b71339b78e8112317bc6d4223] committed with status (ENDORSEMENT_POLICY_FAILURE) at localhost:7051
+Error: transaction invalidated with status (ENDORSEMENT_POLICY_FAILURE)
+```
 
 Verify:
 
