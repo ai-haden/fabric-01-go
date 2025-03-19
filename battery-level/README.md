@@ -77,8 +77,8 @@ require (
 Then:
 
 ```
-go get -u github.com/hyperledger/fabric-chaincode-go/shim
-go get -u github.com/hyperledger/fabric-protos-go/peer
+go get github.com/hyperledger/fabric-chaincode-go/shim@latest
+go get github.com/hyperledger/fabric-protos-go/peer@latest
 go mod tidy
 go mod vendor
 ```
