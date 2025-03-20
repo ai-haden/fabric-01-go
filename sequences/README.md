@@ -1,5 +1,9 @@
 ## Summary sequence of this repo
 
+If a previous install is in-place, do a clean reset from the `../fabric-samples/test-network` folder:
+
+`rm -rf peer0_org1_data/* peer0_org2_data/* orderer_data/*`
+
 ```
 # Package (if not done)
 cd /home/cartheur/go/src/github.com/cartheur/fabric-samples/chaincode/battery_level_chaincode/
