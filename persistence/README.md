@@ -30,6 +30,8 @@ docker inspect orderer.example.com | grep -A 5 "Mounts"
 
 Running the command a few times will result in the correct pointing to the new folders created in the `test-network` directory.
 
+Redeploy the `haden` batterylevel package.
+
 _Check Persistence_
 
 `peer chaincode invoke -o localhost:7050 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-20T10:03:00Z"]}'`
