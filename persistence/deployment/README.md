@@ -1,6 +1,6 @@
 ## Multiplexed `export`
 
-Do the deployment
+### Do the deployment
 
 ```
 cd /home/cartheur/go/src/github.com/cartheur/fabric-samples/chaincode/battery_level_chaincode/
@@ -11,7 +11,7 @@ set_org2
 peer lifecycle chaincode install batterycc.tar.gz
 ```
 
-Test persistence
+### Test persistence
 
 ```
 cd /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network
@@ -20,3 +20,10 @@ cd /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network
 set_org1
 peer chaincode query -C haden -n batterylevelcc -c '{"Args":["queryBattery","Robot1"]}'
 ```
+
+### Approve by both orgs
+
+
+
+### Committ
+
