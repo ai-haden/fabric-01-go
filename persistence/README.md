@@ -16,6 +16,19 @@ orderer.example.com:
   volumes:
     - ./orderer_data:/var/hyperledger/production
 ```
+Create the `haden` channel:
+
+`./network.sh createChannel -c haden`
+
+`grep` to see how it went:
+
+```
+docker inspect peer0.org1.example.com | grep -A 5 "Mounts"
+docker inspect peer0.org2.example.com | grep -A 5 "Mounts"
+docker inspect orderer.example.com | grep -A 5 "Mounts"
+```
+
+Running the command a few times will result in the correct pointing to the new folders created in the `test-network` directory.
 
 _Check Persistence_
 
