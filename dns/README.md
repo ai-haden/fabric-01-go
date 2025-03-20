@@ -184,3 +184,22 @@ namespace BatteryReporter
     }
 }
 ```
+
+Run the caller
+```
+static void ReportBatteryLevel()
+{
+    string robotID = "Robot1";
+    string batteryLevel = GetBatteryLevel().ToString();
+    string timestamp = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
+    string[] args = { robotID, batteryLevel, timestamp };
+    Task.Run(() => Program.Main(args)).Wait();
+}
+```
+
+Verify (on host)
+
+```
+set_org1
+peer chaincode query -C haden -n batterylevelcc -c '{"Args":["queryBattery","Robot1"]}'
+```
