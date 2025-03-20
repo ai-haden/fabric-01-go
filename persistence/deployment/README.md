@@ -48,10 +48,20 @@ But better
 ```
 peer chaincode invoke -o localhost:7050 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-20T10:03:00Z"]}'
 ```
+Gets:
 
+```
+2025-03-20 12:22:47.354 CET 0001 INFO [chaincodeCmd] chaincodeInvokeOrQuery -> Chaincode invoke successful. result: status:200 payload:"Battery level reported successfully"
+```
 ### Query (for the queryBattery addition to the code)
 
 `peer chaincode query -C haden -n batterylevelcc -c '{"Args":["queryBattery","Robot1"]}'`
+
+Returns
+
+`Error: endorsement failure during query. response: status:500 message:"No battery data for this robot" `
+
+Because the robot is not connected. NEXT STEP.
 
 ### Test persistence
 
