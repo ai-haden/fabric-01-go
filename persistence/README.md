@@ -38,8 +38,12 @@ However, getting the error:
 
 The fabric cannot find the config path, so set it:
 
-`export FABRIC_CFG_PATH=/home/user/fabric/fabric-samples/config/`
+`export FABRIC_CFG_PATH=/home/cartheur/go/src/github.com/cartheur/fabric-samples/config/`
+
+Then the next error:
+
+`Error: failed to normalize chaincode path: failed to determine module root: exec: "go": executable file not found in $PATH`
 
 _Check Persistence_
 
-`peer chaincode invoke -o localhost:7050 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-20T10:03:00Z"]}'`
+`peer chaincode invoke -o localhost:7050 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-20T10:03:00Z"]}'`
