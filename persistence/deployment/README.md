@@ -22,15 +22,15 @@ peer lifecycle chaincode queryinstalled
 ### Approve by both orgs
 ```
 set_org1
-peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:<some-hash> --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.1 --package-id batterylevelcc_1.1:df995bb9611f838b8143eaa4d62bd1779eee51d1e1412572e379c2902f344eb0 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
 set_org2
-peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:<some-hash> --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.1 --package-id batterylevelcc_1.1:df995bb9611f838b8143eaa4d62bd1779eee51d1e1412572e379c2902f344eb0 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 ```
 ### Commit
 ```
 set_org1
-peer lifecycle chaincode commit -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --peerAddresses localhost:7051 --peerAddresses localhost:9051 --tlsRootCertFiles /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --tlsRootCertFiles /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+peer lifecycle chaincode commit -o localhost:7050 --channelID haden --name batterylevelcc --version 1.1 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --peerAddresses localhost:7051 --peerAddresses localhost:9051 --tlsRootCertFiles /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --tlsRootCertFiles /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
 ```
 Expected
 ```
