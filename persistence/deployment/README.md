@@ -4,11 +4,11 @@
 
 ```
 cd /home/cartheur/go/src/github.com/cartheur/fabric-samples/chaincode/battery_level_chaincode/
-peer lifecycle chaincode package batterycc.tar.gz -p . --label batterylevelcc_1.0
+peer lifecycle chaincode package batterylevelcc.tar.gz -p . --label batterylevelcc_1.0
 set_org1
-peer lifecycle chaincode install batterycc.tar.gz
+peer lifecycle chaincode install batterylevelcc.tar.gz
 set_org2
-peer lifecycle chaincode install batterycc.tar.gz
+peer lifecycle chaincode install batterylevelcc.tar.gz
 ```
 
 ### Test persistence
