@@ -1,7 +1,7 @@
 ## Getting the code built and on the chain
 
 
-1. Package the chaincode, as in the fabric-friendly folder, inside the recommended go folder:
+### Package the chaincode, as in the fabric-friendly folder, inside the recommended go folder:
 
 `~/go/src/github.com/cartheur/fabric-samples/chaincode/battery_level_chaincode`
 
@@ -16,7 +16,7 @@ export PATH=/home/cartheur/go/src/github.com/cartheur/fabric-samples/bin:$PATH
 export FABRIC_CFG_PATH=/home/cartheur/go/src/github.com/cartheur/fabric-samples/config/
 ```
 
-2. Install the chaincode
+### Install the chaincode
 
 `peer lifecycle chaincode install batterylevelcc.tar.gz`
 
@@ -144,7 +144,7 @@ Installed chaincodes on peer:
 Package ID: batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078, Label: batterylevelcc_1.0
 ```
 
-Approve:
+### Approve the installed chaincode
 
 `peer lifecycle chaincode approveformyorg -o localhost:7050 --channelID haden --name batterylevelcc --version 1.0 --package-id batterylevelcc_1.0:1833bd409463ffd8dbad6cc34ff5620e155901b7fd40ebdb6486a76e54485078 --sequence 1 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem`
 
@@ -196,7 +196,7 @@ Errors with:
 
 `Error: endorsement failure during invoke. response: status:500 message:"make sure the chaincode batterylevelcc has been successfully defined on channel haden and try again: chaincode batterylevelcc not found" `
 
------
+### Query the chaincode
 
 Getting lost now. Check with:
 
@@ -278,7 +278,7 @@ Yes! Received:
 2025-03-19 15:35:39.313 CET 0002 INFO [chaincodeCmd] ClientWait -> txid [a6afca9885bedd49e4098d4f6722e6400f4f82540d6c13d4d427ae90bef79c0d] committed with status (VALID) at localhost:7051
 ```
 
-And validate:
+### Query to validate the chaincode
 
 `peer lifecycle chaincode querycommitted --channelID haden --name batterylevelcc`
 
