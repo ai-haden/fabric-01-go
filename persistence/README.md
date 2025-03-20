@@ -32,6 +32,10 @@ Running the command a few times will result in the correct pointing to the new f
 
 [Redeploy](/battery-level/README.md#package-the-chaincode-as-in-the-fabric-friendly-folder-inside-the-recommended-go-folder) the `haden` batterylevel package.
 
+However, getting the error:
+
+`InitCmd -> Fatal error when initializing core config : error when reading core config file: Config File "core" Not Found in "[/home/user/fabric-samples/chaincode/battery_level_chaincode]"`
+
 _Check Persistence_
 
 `peer chaincode invoke -o localhost:7050 --tls --cafile /home/user/fabric/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-20T10:03:00Z"]}'`
