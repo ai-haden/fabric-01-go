@@ -35,7 +35,13 @@ peer lifecycle chaincode commit -o localhost:7050 --channelID haden --name batte
 Expected
 ```
 Committed chaincode definition for chaincode 'batterylevelcc' on channel 'haden':
-Version: 1.0, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc
+Version: 1.1, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc
+```
+But better
+```
+2025-03-20 12:20:46.066 CET 0001 INFO [chaincodeCmd] ClientWait -> txid [dd03afd0a380a5561897abaaed752af423e4b2c98f36923c4c73ee41ee16c692] committed with status (VALID) at localhost:9051
+2025-03-20 12:20:46.075 CET 0002 INFO [chaincodeCmd] ClientWait -> txid [dd03afd0a380a5561897abaaed752af423e4b2c98f36923c4c73ee41ee16c692] committed with status (VALID) at localhost:7051
+
 ```
 
 ### Test invocation (on org1)
