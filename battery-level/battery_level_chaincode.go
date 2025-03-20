@@ -64,6 +64,33 @@ func (t *BatteryChaincode) reportBattery(stub shim.ChaincodeStubInterface, args 
     return shim.Success([]byte("Battery level reported successfully"))
 }
 
+// Add a query battery function
+func (t *BatteryChaincode) queryBattery(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+    if len(args) != 1 {
+        return shim.Error("Expected 1 arg: robotID")
+    }
+    robotID := args[0]
+    batteryData, err := stub.GetState(robotID)
+    if err != nil {
+        return shim.Error(err.Error())
+    }
+    if batteryData == nil {
+        return shim.Error("No battery data for this robot")
+    }
+    return shim.Success(batteryData)
+}
+
+// Update Invoke to handle queryBattery
+func (t *BatteryChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
+    function, args := stub.GetFunctionAndParameters()
+    if function == "reportBattery" {
+        return t.reportBattery(stub, args)
+    } else if function == "queryBattery" {
+        return t.queryBattery(stub, args)
+    }
+    return shim.Error("Invalid function name")
+}
+
 func main() {
     err := shim.Start(new(BatteryChaincode))
     if err != nil {
