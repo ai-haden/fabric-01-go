@@ -4,6 +4,12 @@ If a previous install is in-place, do a clean reset from the `../fabric-samples/
 
 `rm -rf peer0_org1_data/* peer0_org2_data/* orderer_data/*`
 
+But better and more professional to uptick the label version number.
+
+```
+peer lifecycle chaincode package batterycc.tar.gz -p . --label batterylevelcc_1.0
+```
+peer lifecycle chaincode package batterycc.tar.gz -p . --label batterylevelcc_1.1
 ```
 # Package (if not done)
 cd /home/cartheur/go/src/github.com/cartheur/fabric-samples/chaincode/battery_level_chaincode/
