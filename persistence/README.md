@@ -44,6 +44,14 @@ Then the next error:
 
 `Error: failed to normalize chaincode path: failed to determine module root: exec: "go": executable file not found in $PATH`
 
+Stupid go in the path, fixed.
+
+Since not yet persistent, run the series of `export`s in the terminal:
+
+```
+
+```
+
 _Check Persistence_
 
 `peer chaincode invoke -o localhost:7050 --tls --cafile /home/cartheur/go/src/github.com/cartheur/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C haden -n batterylevelcc -c '{"Args":["reportBattery","Robot1","8000","2025-03-20T10:03:00Z"]}'`
