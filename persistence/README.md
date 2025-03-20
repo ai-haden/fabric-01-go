@@ -30,7 +30,7 @@ docker inspect orderer.example.com | grep -A 5 "Mounts"
 
 Running the command a few times will result in the correct pointing to the new folders created in the `test-network` directory.
 
-Redeploy the `haden` batterylevel package.
+[Redeploy](/battery-level/README.md#package-the-chaincode-as-in-the-fabric-friendly-folder-inside-the-recommended-go-folder) the `haden` batterylevel package.
 
 _Check Persistence_
 
