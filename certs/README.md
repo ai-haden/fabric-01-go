@@ -13,6 +13,12 @@ export PATH=${PWD}/../bin:$PATH
 export FABRIC_CA_CLIENT_HOME=${PWD}
 fabric-ca-client enroll -u http://admin:adminpw@localhost:7054 --tls.certfiles ${PWD}/organizations/fabric-ca/org1/tls-cert.pem
 ```
+With the error:
+
+```
+Error: Failed to parse response: Client sent an HTTP request to an HTTPS server.
+: invalid character 'C' looking for beginning of value
+```
 
 Copy certs to wallet-ca
 
